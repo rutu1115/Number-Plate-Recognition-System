@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plate Logs - Admin</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 90%;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recognized Plate Logs</h1>
+    <table>
+        <tr>
+            <th>Plate Text</th>
+            <th>Image</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for log in logs %}
+        <tr>
+            <td>{{ log[0] }}</td>
+            <td><a href="{{ url_for('static', filename='../uploads/' + log[1]) }}" target="_blank">{{ log[1] }}</a></td>
+            <td>{{ log[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">Back to Upload</a>
+</body>
+</html>
